@@ -1,6 +1,10 @@
 {
+    // required
     "name": "Text Alphabet Sort",
     "version": "0.1",
+    "manifest_version": 2,
+
+    "author": "gseok.seo@gmail.com",
     "description": "Text alphabet sort for each line",
     "browser_action": {
         "default_title": "Mira text alphabet sort",
@@ -9,6 +13,7 @@
     },
     "permissions": [
         "activeTab",
-        "https://ajax.googleapis.com/"
-    ]
+        "http://ajax.googleapis.com/"
+    ],
+    "content_security_policy": "script-src 'self' https://*.googleapis.com; object-src 'self'"
 }
