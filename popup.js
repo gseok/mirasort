@@ -9,9 +9,6 @@ function _ascend(a, b) {
     var bCode;
     var result = 0;
 
-    a = a.trim().toLowerCase();
-    b = b.trim().toLowerCase();
-
     // get short length
     length = (a.length >= b.length) ? b.length : a.length;
 
@@ -23,6 +20,23 @@ function _ascend(a, b) {
             return 1;
         }
     }
+    if (b.includes('dojo/text') || b.includes('xstyle/css!')) {
+        if (!a.includes('dojo/text!') || !a.includes('xstyle/css!')) {
+            return -1;
+        }
+    }
+
+    // dojo/domReady!
+    if (a.includes('dojo/domReady!')) {
+        return 1;
+    }
+    if (b.includes('dojo/domReady!')) {
+        return -1;
+    }
+
+    // trim space and change lower case
+    a = a.trim().toLowerCase();
+    b = b.trim().toLowerCase();
 
     // check
     for (i = 0; i < length; i++) {
